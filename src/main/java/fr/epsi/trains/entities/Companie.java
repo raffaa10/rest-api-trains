@@ -1,9 +1,17 @@
 package fr.epsi.trains.entities;
 
+import javax.persistence.*;
+import java.util.List;
+
+@Entity
 public class Companie {
 
+    @Id
+    private int id;
     private String nom;
     private boolean annule;
+    @OneToMany
+    private List<Train> listTrains;
 
     public Companie() {
     }

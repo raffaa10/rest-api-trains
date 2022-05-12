@@ -1,11 +1,20 @@
 package fr.epsi.trains.entities;
 
+import javax.persistence.*;
+import java.util.List;
+
+@Entity
 public class Client {
 
+    @Id
+    private int id;
     private String nom;
     private String prenom;
     private String adresse;
     private String telephone;
+
+    @OneToMany(mappedBy = "client")
+    private List<Reservation> listReservations;
 
     public Client() {
     }

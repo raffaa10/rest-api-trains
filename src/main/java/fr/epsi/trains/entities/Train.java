@@ -2,7 +2,9 @@ package fr.epsi.trains.entities;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
+@SuppressWarnings("JpaDataSourceORMInspection")
 @Entity
 public class Train {
 
@@ -12,10 +14,29 @@ public class Train {
     private LocalDateTime dateArrive;
     private LocalDateTime dateDep;
 
-    public Train(int numero, LocalDateTime dateArrive, LocalDateTime dateDep) {
+    @ManyToOne
+    @JoinColumn(name="companie_id")
+    private Companie companie;
+
+    @OneToMany(mappedBy="train")
+    private List<Arret> listArrets;
+
+    @OneToMany(mappedBy = "train")
+    private List<Reservation> listReservations;
+
+    @ManyToOne
+    @JoinColumn(name = "gare_id")
+    private Gare gareDep;
+
+    @ManyToOne
+    @JoinColumn(name = "gare_id")
+    private Gare gareArrive;
+
+    public Train(int numero, LocalDateTime dateArrive, LocalDateTime dateDep, List<Arret> listArrets) {
         this.numero = numero;
         this.dateArrive = dateArrive;
         this.dateDep = dateDep;
+        this.listArrets = listArrets;
     }
 
     public Train() {
