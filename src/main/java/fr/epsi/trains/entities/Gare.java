@@ -10,11 +10,11 @@ public class Gare {
     private int id;
     private String nom;
 
-    @OneToMany(mappedBy = "train")
-    private List<Train> listTrainDeps;
+//    @OneToMany(mappedBy = "train")
+//    private List<Train> listTrainDeps;
 
-    @OneToMany(mappedBy = "train")
-    private List<Train> listTrainArrives;
+//    @OneToMany(mappedBy = "train")
+//    private List<Train> listTrainArrives;
 
     @OneToOne(mappedBy="gare")
     private Arret arret;

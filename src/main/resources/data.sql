@@ -1,0 +1,1 @@
+insert into gare (id, nom )values (1,'Montpelier Saint-Roch');
