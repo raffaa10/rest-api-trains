@@ -28,9 +28,9 @@ public class Train {
     @JoinColumn(name = "gare_id")
     private Gare gareDep;
 
-    @ManyToOne
-    @JoinColumn(name = "gare_id")
-    private Gare gareArrive;
+//    @ManyToOne
+//    @JoinColumn(name = "gare_id")
+//    private Gare gareArrive;
 
     public Train(int numero, LocalDateTime dateArrive, LocalDateTime dateDep, List<Arret> listArrets) {
         this.numero = numero;
